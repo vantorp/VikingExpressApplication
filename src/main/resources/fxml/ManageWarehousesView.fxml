@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="se.lu.ics.controllers.ManageWarehousesViewController" >
+
+    <!-- Top banner -->
+    <HBox style="-fx-background-color: #0b1839;" >
+        <padding>
+            <Insets top="10" left ="10" bottom="10" right="10" />
+        </padding>
+
+        <ImageView preserveRatio="true" fitWidth="100">
+            <image>
+                <Image url="@/VikingExpressTransparent.png"/>
+            </image>
+        </ImageView>
+
+        <Region prefWidth="40" />
+
+        <VBox>
+            <Region prefHeight="30" />
+            <Label fx:id="topTitle" text="Inventory Management System" style="-fx-text-fill: white; -fx-font-size: 24pt;"/>
+        </VBox>
+
+    </HBox>
+
+    <!-- Tab pane-->
+    <TabPane fx:id="mainTabPane" prefHeight="700" prefWidth = "1500" stylesheets="@../styles.css">
+        <tabs>
+            <Tab text="Manage Warehouses" closable="false">
+
+                <!-- Content of the tab -->
+                <VBox spacing="20.0" style="-fx-background-color:#c7e3ff;" >
+                    <padding>
+                        <Insets top="20" left ="20" bottom="20" right="20" />
+                    </padding>
+                <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                    <padding>
+                        <Insets top="20" left ="20" bottom="20" right="20" />
+                    </padding>
+
+                    <HBox spacing="10.0">
+                        <Label fx:id="testLabel" style="-fx-font-size: 20;" text="Manage Warehouses" />
+                        <Region HBox.hgrow="ALWAYS" />
+                        <Button fx:id="buttonFindShipment" onAction="#handleButtonFindShipmentAction" text="Find Shipment by ID:" />
+                        <TextField fx:id="textFieldFindShipment" prefWidth="100.0" />
+                    </HBox>
+
+                    <TableView fx:id="tableViewWarehouseRegister" prefHeight="500.0" prefWidth="1000.0">
+                        <columns>
+                            <TableColumn fx:id="tableColumnWarehouseName" prefWidth="150.0" text="Warehouse"/>
+                            <TableColumn fx:id="tableColumnWarehouseRegion" prefWidth="150.0" text="Region"/>
+                            <TableColumn fx:id="tableColumnWarehouseAddress" prefWidth="150.0" text="Address"/>
+                            <TableColumn fx:id="tableColumnWarehouseCapacity" prefWidth="130.0" text="Total Capacity (m³)"/>
+                            <TableColumn fx:id="tableColumnWarehouseStockLevel" prefWidth="135.0" text=" Stock Level (m³)"/>
+                            <TableColumn fx:id="tableColumnWarehouseAvailableCapacity" prefWidth="180" text="Remaining Capacity (%)"/>
+                            <TableColumn fx:id="tableColumnWarehouseLastInspectionDate" prefWidth="169.0" text="Last Inspection Date"/>
+                        </columns>
+                        <columnResizePolicy>
+                            <TableView fx:constant="CONSTRAINED_RESIZE_POLICY" />
+                        </columnResizePolicy>
+                    </TableView>
+                </VBox>
+
+                <HBox spacing = "20" >
+
+                    <HBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                        <padding>
+                            <Insets top="20" left="20" bottom="20" right="20"></Insets>
+                        </padding>
+                        <Button fx:id="buttonAddWarehouse" mnemonicParsing="false" onAction="#handleButtonAddWarehouseAction" text="Add" />
+                        <Button fx:id="buttonEditWarehouse" mnemonicParsing="false" onAction="#handleButtonEditWarehouseAction" text="Edit" />
+                        <Button fx:id="buttonRemoveWarehouse" mnemonicParsing="false" onAction="#handleButtonRemoveWarehouseAction" text="Remove" />
+                    </HBox>
+                
+                    <HBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                        <padding>
+                            <Insets top="20" left="20" bottom="20" right="20"></Insets>
+                        </padding>
+                        <Button fx:id="buttonViewWarehouse" mnemonicParsing="false" onAction="#handleButtonViewWarehouseAction" text="View Shipments" />
+                    </HBox>
+                
+                    <HBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;">
+                        <padding>
+                            <Insets top="20" left="20" bottom="20" right="20"></Insets>
+                        </padding>
+                        <Button fx:id="buttonWarehouseDetails" mnemonicParsing="false" onAction="#handleButtonWarehouseDetailsAction" text="Warehouse Details" />
+                        <Button fx:id="buttonGetWarehouseInspectionLog" mnemonicParsing="false" onAction="#handleButtonGetWarehouseInspectionLogAction" text="View Warehouse Inspections" />
+                        <Button fx:id="buttonGetWarehouseTravelLog" mnemonicParsing="false" onAction="#handleButtonGetWarehouseTravelLogAction" text="View Warehouse Shipments Log" />
+                    </HBox>
+                
+                </HBox>
+
+                </VBox>
+
+                <!--End content of the tab-->
+            </Tab>
+        </tabs>
+    </TabPane>
+</VBox>

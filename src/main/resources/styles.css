@@ -1,0 +1,16 @@
+.tab-pane .tab-header-area .tab-header-background {
+    -fx-background-color: #0b1839;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #d3d3d3; /* Light grey background for unselected tabs */
+}
+
+/* Style for the selected tab */
+.tab-pane .tab:selected {
+    -fx-background-color: #c7e3ff; /* Tomato background color for selected tab */
+    -fx-text-fill: black; /* Optional: Change text color for the selected tab */
+    /* -fx-border-width: 0 0 3px 0; /* Only set bottom border (3px thick) */
+    -fx-border-color: transparent;
+    -fx-border-color: #c7e3ff; /* Black bottom border */
+}

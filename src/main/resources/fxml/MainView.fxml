@@ -1,0 +1,122 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+   fx:controller="se.lu.ics.controllers.MainViewController"
+   prefHeight="550.0" prefWidth="1100.0"
+   style="-fx-background-color:#c7e3ff;"
+   spacing="20" >
+   
+   <!-- Top banner -->
+   <HBox style="-fx-background-color: #0b1839;" >
+        <padding>
+            <Insets top="10" left ="10" bottom="10" right="10" />
+        </padding>
+
+        <ImageView preserveRatio="true" fitWidth="100">
+            <image>
+                <Image url="@/VikingExpressTransparent.png"/>
+            </image>
+        </ImageView>
+
+        <Region prefWidth="40" />
+
+        <VBox>
+            <Region prefHeight="30" />
+            <Label text="Inventory Management System" style="-fx-text-fill: white; -fx-font-size: 24pt;"/>
+        </VBox>
+
+   </HBox>
+
+   <VBox spacing="20.0">
+      <padding>
+         <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+      </padding>
+
+      <!-- The three regions -->
+      <HBox spacing="20">
+
+         <!--North overview statistics -->
+         <VBox spacing="10.0" prefWidth="310" style="-fx-background-color: white; -fx-background-radius: 8;" >
+            <padding>
+               <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+            </padding>
+            <Label text="North" style="-fx-font-size: 20;"/>
+            <Region prefHeight="20"/>
+            <ProgressBar fx:id="progressBarNorth" prefWidth="300" />
+            <Label fx:id="labelTotalCapacityNorth" text="-" />
+            <Label fx:id="labelTotalUsedSpaceNorth" text="-" />
+            <Label fx:id="labelTotalUnusedSpaceNorth" text="-"/>
+            <Label fx:id="labelStatsNorth" text="-"/>
+            <Label fx:id="labelStatsNorthSecond" text="-"/>
+         </VBox>
+
+         <!--Central overview statistics-->
+         <VBox spacing="10.0" prefWidth="310" style="-fx-background-color: white; -fx-background-radius: 8;">
+            <padding>
+               <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+            </padding>
+            <Label text="Central" style="-fx-font-size: 20;"/>
+            <Region prefHeight="20"/>
+            <ProgressBar fx:id="progressBarCentral" prefWidth="300" />
+            <Label fx:id="labelTotalCapacityCentral" text="-" />
+            <Label fx:id="labelTotalUsedSpaceCentral" text="-" />
+            <Label fx:id="labelTotalUnusedSpaceCentral" text="-"/>
+            <Label fx:id="labelStatsCentral" text="Error"/>
+            <Label fx:id="labelStatsCentralSecond" text="Error"/>
+         </VBox>
+
+         <!--South overview statistics-->
+         <VBox spacing="10.0" prefWidth="310" style="-fx-background-color: white; -fx-background-radius: 8;">
+            <padding>
+               <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+            </padding>
+            <Label text="South" style="-fx-font-size: 20;" />
+            <Region prefHeight="20"/>
+            <ProgressBar fx:id="progressBarSouth" prefWidth="300" />
+            <Label fx:id="labelTotalCapacitySouth" text="-" />
+            <Label fx:id="labelTotalUsedSpaceSouth" text="-" />
+            <Label fx:id="labelTotalUnusedSpaceSouth" text="-"/>
+            <Label fx:id="labelStatsSouth" text="Error"/>
+            <Label fx:id="labelStatsSouthSecond" text="Error"/>
+         </VBox>
+
+      </HBox>
+
+      <HBox spacing="20.0" >
+
+            <HBox style="-fx-background-color: white; -fx-background-radius: 8;">
+               <padding>
+                  <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+               </padding>
+               <Button fx:id="ButtonManageWarehouses" onAction="#handleButtonManageWarehousesAction" text="Manage Warehouses" />
+            </HBox>
+
+            <HBox style="-fx-background-color: white; -fx-background-radius: 8;">
+               <padding>
+                  <Insets top="20" left ="20" bottom="20" right="20"></Insets>
+               </padding>
+               <VBox>
+                  <Label text="Busiest warehouse: " style="-fx-font-size: 16;" />
+                  <Label fx:id="labelBusiestWarehouse" text="-" />
+               </VBox>
+            </HBox>
+
+            <Region HBox.hgrow="ALWAYS" />
+
+      </HBox>
+   </VBox>
+
+</VBox>

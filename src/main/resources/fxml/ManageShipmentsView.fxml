@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+
+
+<!-- Öppnar som tab.-->
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1"
+   fx:controller="se.lu.ics.controllers.ManageShipmentsViewController" 
+   prefHeight="700" prefWidth="1500" 
+   spacing="20"
+   style="-fx-background-color:#c7e3ff;" >
+   <padding>
+      <Insets top="20" left="20" bottom="20" right="20"></Insets>
+   </padding>
+   
+   <HBox spacing="20">
+   
+      <!-- Left side with the shipment table view-->
+      <VBox spacing="20.0">
+         <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;" >
+            <padding>
+               <Insets top="20" left="20" bottom="20" right="20"></Insets>
+            </padding>
+
+            <!-- Heading -->
+            <HBox spacing="10.0">
+               <Label fx:id="labelManageShipmentsViewTitle" style="-fx-font-size: 20;" text="View Shipments" />
+               <Region HBox.hgrow="ALWAYS" />
+               <Button fx:id="buttonFindShipment" text="Find by ID:" onAction="#handleButtonFindShipmentAction"/>
+               <TextField fx:id="textFieldFindItem" prefWidth="100.0" />
+            </HBox>
+
+            <!-- Table view-->
+            <TableView fx:id="tableViewWarehouseShipments" prefHeight="500.0" prefWidth="840.0"
+               editable="true">
+               <columns>
+                  <TableColumn fx:id="tableColumnShipmentId" prefWidth="140.0" text="ID"
+                     editable="false" />
+                  <TableColumn fx:id="tableColumnShipmentVolume" prefWidth="110.0" text="Volume (m³)"
+                     editable="false" />
+                  <TableColumn fx:id="tableColumnShipmentStatus" prefWidth="85.0" text="Status"
+                     editable="false" />
+                  <TableColumn fx:id="tableColumnShipmentLastInspectionDate" prefWidth="150.0"
+                     text="Last Inspection Date" />
+                  <TableColumn fx:id="tableColumnShipmentDaysInWarehouse" prefWidth="150.0"
+                     text="Days in Warehouse" />
+                  <TableColumn fx:id="tableColumnNumberWarehouses" prefWidth="150" text="Number of Warehouses"
+                     editable="false" />
+               </columns>
+            </TableView>
+
+            <!-- Spacing -->
+            <Region prefHeight="0" />
+
+         </VBox>
+
+         <!-- Buttons under left table view -->
+         <HBox spacing="20">
+            
+            <HBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8">
+               <padding>
+                  <Insets top="20" left="20" bottom="20" right="20"></Insets>
+               </padding>
+
+               <!-- Add -->
+               <Button fx:id="buttonAddShipment" mnemonicParsing="false"
+                  onAction="#handleButtonAddShipmentAction" text="Add" />
+
+               <!-- Edit -->
+               <Button fx:id="buttonEditShipment" mnemonicParsing="false"
+                  onAction="#handleButtonEditShipmentAction" text="Edit" />
+               
+               <!-- Remove -->
+               <Button fx:id="buttonRemoveShipment" mnemonicParsing="false"
+                  onAction="#handleButtonRemoveShipmentAction" text="Remove" />
+
+            </HBox>
+
+            <HBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8">
+               <padding>
+                  <Insets top="20" left="20" bottom="20" right="20"></Insets>
+               </padding>
+
+               <!-- Handle shipment-->
+               <Button fx:id="buttonHandleShipment" mnemonicParsing="false"
+                  onAction="#handleButtonHandleShipmentAction" text="Handle Shipment" />
+               
+               <!-- Manage inspections -->
+               <Button fx:id="buttonViewShipmentInspectionLog" mnemonicParsing="false"
+                  onAction="#handleButtonViewInspectionLogAction" text="Manage Inspections" />
+
+            </HBox>
+
+         </HBox>
+
+      </VBox>
+      
+      <!-- Right side with the travel log tableview-->
+      <VBox spacing="20.0">
+         <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8">
+            <padding>
+               <Insets top="20" left="20" bottom="20" right="20"></Insets>
+            </padding>
+            
+            <Label fx:id="labelManageTravelLogTableTitle" style="-fx-font-size: 20;" text="Shipment Travel Log" />
+
+            <TableView fx:id="tableViewShipmentTravelLog" prefHeight="500.0" prefWidth="600.0">
+               <columns>
+                  <TableColumn fx:id="tableColumnArrivalDate" prefWidth="150.0" text="Date of Arrival" />
+                  <TableColumn fx:id="tableColumnArrivalLocation" prefWidth="100.0" text="Warehouse" />
+                  <TableColumn fx:id="tableColumnDepartureDate" prefWidth="150.0"
+                     text="Date of Departure" />
+                  <TableColumn fx:id="tableColumnThroughput" prefWidth="125.0" text="Throughput (days)" />
+               </columns>
+            </TableView>
+
+         </VBox>
+
+         <!-- Buttons under right table view -->
+         <HBox>
+            
+            <HBox spacing="20" style="-fx-background-color: white; -fx-background-radius: 8" >
+               <padding>
+                  <Insets top="20" left="20" bottom="20" right="20"></Insets>
+               </padding>
+            
+               <!-- Edit log-->
+               <Button fx:id="buttonEditTravelLogWarehouse" mnemonicParsing="false"
+                  onAction="#handleButtonEditTravelLogWarehouseAction" text="Edit Shipment Log" />
+
+               <!-- Remove log-->
+               <Button fx:id="buttonDeleteShipmentLog" mnemonicParsing="false"
+                  onAction="#handleButtonDeleteShipmentLogAction" text="Remove Shipment Log" />
+            
+            </HBox>
+
+            <!-- Filler space so the buttons don't take up all the space horizontally -->
+            
+            <Region HBox.hgrow="ALWAYS" />
+         </HBox>
+
+      </VBox>
+
+   </HBox>
+   
+</VBox>

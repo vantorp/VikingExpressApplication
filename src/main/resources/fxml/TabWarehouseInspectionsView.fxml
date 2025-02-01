@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.TextField?>
+
+            
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+    fx:controller="se.lu.ics.controllers.TabWarehouseInspectionsViewController"
+    spacing="20.0" 
+    style="-fx-background-color:#c7e3ff;" >
+    <padding>
+        <Insets top="20" left="20" bottom="20" right="20"></Insets>
+    </padding>
+
+
+    <VBox spacing="20.0" >
+        <!-- White area -->
+        <VBox spacing="20.0" style="-fx-background-color: white; -fx-background-radius: 8;" >
+        <padding>
+            <Insets top="20" left="20" bottom="20" right="20"></Insets>
+        </padding>
+
+            <!-- Heading -->
+            <HBox spacing="10.0">
+               <Label fx:id="warehouseInspectionsTabLabel" style="-fx-font-size: 20;" text="Inspections" />
+               <Region HBox.hgrow="ALWAYS" />
+               <Button fx:id="buttonFindShipment" text="Find by ID:" onAction="#handleButtonFindShipmentAction"/>
+               <TextField fx:id="textFieldFindItem" prefWidth="100.0" />
+            </HBox>
+
+            <!-- Table view-->
+            <TableView fx:id="tableViewWarehouseInspections" prefHeight="500.0" prefWidth="900.0">
+                <columns>
+                    <TableColumn fx:id="tableColumnShipmentId" prefWidth="150.0" text="Shipment ID" />
+                    <TableColumn fx:id="tableColumnDateofInspection" prefWidth="150.0" text="Date of Inspection" />
+                    <TableColumn fx:id="tableColumnInspectorName" prefWidth="150.0" text="Inspector Name" />
+                    <TableColumn fx:id="tableColumnInspectionResult" prefWidth="150.0" text="Result" />
+                </columns>
+            </TableView>
+        </VBox>
+
+        <!-- Buttons -->
+        <HBox>
+
+            <HBox spacing = "20" style="-fx-background-color: white; -fx-background-radius: 8;">
+                <padding>
+                    <Insets top="20" left="20" bottom="20" right="20"></Insets>
+                </padding>
+                <Button fx:id="buttonUpdateWarehouseInspectionEntry" mnemonicParsing="false" onAction="#handleButtonUpdateWarehouseInspectionLogAction" text="Edit Inspection" />
+                <Button fx:id="buttonDeleteWarehouseInspectionEntry" mnemonicParsing="false" onAction="#handleButtonDeleteWarehouseInspectionLogAction" text="Remove Inspection" />
+            </HBox>
+            
+            <Region HBox.hgrow="ALWAYS" />
+        
+        </HBox>
+
+    </VBox>
+
+</VBox>

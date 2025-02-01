@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.MenuButton?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.ComboBox?>
+
+
+
+<VBox xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" 
+   fx:controller="se.lu.ics.controllers.EditWarehouseViewController"
+   spacing="20.0" 
+   prefWidth="400.0"
+   style="-fx-background-color: white;" >
+   <padding>
+      <Insets top="20" left="20" bottom="20" right="20"></Insets>
+   </padding>
+
+      <!-- Heading -->
+      <Label fx:id="labelAddWarehouseTitle" style="-fx-font-size: 20;" text="Edit Warehouse" />
+
+      <!-- Name -->
+      <VBox>
+         <Label fx:id="labelWarehouseName" text="Name:" />
+         <TextField fx:id="textFieldWarehouseName" layoutX="120.0" layoutY="80.0" prefWidth="200.0"/>
+      </VBox>
+
+      <!-- Region -->
+      <VBox>
+         <Label fx:id="labelWarehouseRegion" text="Region:" />
+         <ComboBox fx:id="comboBoxRegion" prefWidth="140.0" onAction="#handleComboBoxSelection" />
+      </VBox>
+
+      <!-- Address -->
+      <VBox>
+         <Label fx:id="labelWarehouseAddress" text="Address:" />
+         <TextField fx:id="textFieldWarehouseAddress" prefWidth="200.0"/>
+      </VBox>
+
+      <!-- Capacity -->
+      <VBox>
+         <Label fx:id="labelWarehouseCapacity" text="Capacity:" />
+         <TextField fx:id="textFieldWarehouseCapacity" prefWidth="200.0"/>
+      </VBox>
+
+      <!-- Spacing -->
+      <Region prefHeight="20.0" />
+
+      <!-- Buttons -->
+      <HBox spacing="20.0">
+         <Button fx:id="buttonUpdateWarehouse"  onAction="#handleButtonUpdateWarehouse" text="Save" />
+         <Button fx:id="buttonCancel"  onAction="#handleButtonCancel" text="Cancel" />
+      </HBox>
+
+</VBox>
