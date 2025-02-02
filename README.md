@@ -18,5 +18,5 @@ A non-exhaustive list of features:
 
 ## Screenshots
 
-![Screenshot of an overview of shipments at a warehouse](shipments.png "Shipments")
-![Screenshot of ...](screenshot2.png "screenshot2")
+![Screenshot of homepage](https://github.com/user-attachments/assets/ea00ee09-c60d-44b1-8800-fa20028bef8b)
+![Screenshot of shipment log](https://github.com/user-attachments/assets/e25a4169-493c-41f7-9f27-5c04a9eb48a9)
